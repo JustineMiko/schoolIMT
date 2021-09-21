@@ -1,23 +1,21 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
-    title: "My Gatsby Site",
+    title: "Baby Yoda Powa",
   },
   plugins: [
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "CFPAT-7uhZBui4VpxUj7veaIxJ6H61dA8PosdJTz9qr_Ax-B8",
-        spaceId: "",
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
       },
     },
     "gatsby-plugin-image",
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "",
-      },
-    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
